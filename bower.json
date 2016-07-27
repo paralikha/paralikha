@@ -1,0 +1,32 @@
+{
+  "name": "paralikha",
+  "description": "Creative solutions for Web. Designs. Feelings.",
+  "main": "index.html",
+  "authors": [
+    "Princess Ellen Alto",
+    "John Lioneil Dionisio"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ssamanila-creative/paralikha",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "bootstrap": "v4.0"
+  },
+  "dependencies": {
+    "fullpage.js": "fullpage#^2.8.1",
+    "font-awesome": "^4.6.3",
+    "bootstrap": "^3.3.6",
+    "animate.css": "^3.5.2",
+    "hover": "Hover#^2.0.2",
+    "smoothstate": "^0.7.2"
+  }
+}

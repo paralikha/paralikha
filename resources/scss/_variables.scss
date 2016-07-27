@@ -1,0 +1,67 @@
+// Color
+$primary: 			#20656f;
+$secondary: 		#ed3426;
+$primary-color: 	$primary;
+$secondary-color: 	$secondary;
+
+$success: 			#5cb85c;
+$info: 				#5bc0de;
+$warning: 			#f0ad4e;
+$danger: 			#ed3200;
+
+$gray: 				#ededed;
+
+$body-bg: 			$gray;
+
+// Font
+$font-size-base: 18px;
+$line-height-base: 1.8;
+
+$primary-font-family: "Lato", "Roboto", "Open Sans", "Helvetica Nueue", sans-serif;
+$secondary-font-family: 'Raleway', 'Lato Bold', 'Lato', serif;
+$heading-font-family: $primary-font-family;
+$subheading-font-family: $secondary-font-family;
+
+$font-weight-hairline: 100;
+$font-weight-thin: 200;
+$font-weight-light: 300;
+$font-weight-bold: 700;
+$font-weight-heavy: 800;
+$font-weight-black: 900;
+
+// Margin
+$margin: 0.833333rem;
+$margin-xs: $margin/4;
+$margin-sm: $margin/2;
+$margin-lg: $margin*2;
+$margin-xl: $margin*4;
+
+// Padding
+$padding-xs: $padding/4;
+$padding-sm: $padding/2;
+$padding-lg: $padding*2;
+$padding-xl: $padding*4;
+
+
+// =====================
+// Bootstrap Override
+$brand-primary: 			$primary !default;
+$brand-success: 			$success !default;
+$brand-info: 				$info !default;
+$brand-warning: 			$warning !default;
+$brand-danger: 				$danger !default;
+
+$border-radius-base: 		0 !default;
+$border-radius-large:   	0 !default;
+$border0-radius-small:  	2px !default;
+
+$grid-gutter-width: 		30px !default;
+
+$container-tablet: 			(720px + $grid-gutter-width) !default;
+$container-sm:	 			$container-tablet !default;
+
+$container-desktop: 		(940px + $grid-gutter-width) !default;
+$container-md: 				$container-desktop !default;
+
+$container-large-desktop:	(1340px + $grid-gutter-width) !default;
+$container-lg: 				$container-large-desktop !default;

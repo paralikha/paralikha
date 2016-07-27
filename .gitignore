@@ -1,0 +1,9 @@
+node_modules/
+bower_components/
+
+src/
+_src/
+
+demo/
+
+com/wp-config.php
