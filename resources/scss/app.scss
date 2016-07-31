@@ -1,4 +1,17 @@
 @import "../../vendor/bootstrap/scss/bootstrap";
 
+@import "mixins/commons";
+
 @import "variables";
 @import "resets";
+
+@import "partials/utilities";
+@import "partials/animations";
+
+@import "partials/brand";
+@import "partials/menu";
+@import "partials/main";
+@import "partials/sections";
+
+@import "partials/modal";
+@import "partials/buttons";

@@ -1,0 +1,59 @@
+.bg {
+	&-primary {
+		background-color: $primary-color !important;
+		color: white;
+	}
+	&-secondary {
+		background-color: $secondary-color !important;
+		color: white;
+	}
+	&-inverse {
+		background-color: $inverse-color !important;
+		color: white;
+	}
+	&-dark {
+		background-color: $dark-color !important;
+		color: white;
+	}
+	&-light {
+		background-color: $light-color !important;
+	}
+}
+
+.close {
+	outline: none;
+	&-center {
+		display: block;
+		font-size: $font-size-base * 2;
+		margin: 0 auto;
+		width: 100%;
+		color: white;
+		opacity: 1;
+		text-align: center;
+		box-shadow: none;
+		text-shadow: none;
+	}
+}
+
+[class*="pinned-"] {
+	position: fixed;
+}
+
+.pinned {
+	&-bottom-left {
+		bottom: 0;
+		left: 0;
+	}
+	&-top-left {
+		top: 0;
+		left: 0;
+	}
+	&-bottom-right {
+		bottom: 0;
+		right: 0;
+	}
+	&-top-right {
+		top: 0;
+		right: 0;
+	}
+}

@@ -1,0 +1,17 @@
+.post-edit-link {
+    font-size: 0.9rem;
+}
+.aligncenter {
+    text-align: center;
+    margin: 0 auto;
+}
+.alignleft {
+    text-align: left;
+}
+.alignright {
+    text-align: right;
+}
+
+.wp-caption-text {
+    font-size: 0.7em;
+}

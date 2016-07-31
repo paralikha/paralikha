@@ -1,0 +1,22 @@
+.modal {
+	&-dialog-fluid {
+		width: 100%;
+		max-width: none;
+		margin: 0;
+		padding: 0;
+		.modal-content {
+			border: none;
+			border-radius: 0 !important;
+		}
+	}
+	&-plain {
+		background-color: #FFF;
+		.modal-content, .modal-header, .modal-footer {
+			background-color: transparent;
+		}
+		&, .modal-content, .modal-header, .modal-footer {
+			border: none;
+			border-bottom: none;
+		}
+	}
+}

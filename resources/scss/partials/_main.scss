@@ -1,0 +1,28 @@
+.main {
+	&-box {
+		width: 500px;
+		height: 500px;
+		background-color: transparent;
+
+		&-center {
+			position: fixed;
+			@include center;
+
+			.brand-main {
+				position: absolute;
+				display: block;
+				@include center;
+			}
+
+			.brand-copy {
+				max-width: 100%;
+				height: auto;
+				position: absolute;
+				display: block;
+				top: 50%;
+				left: 70%;
+				transform: translateX($margin) translateY(-50%);
+			}
+		}
+	}
+}

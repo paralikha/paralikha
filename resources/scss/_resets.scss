@@ -1,20 +1,35 @@
 html, body {
 	overflow-x: hidden;
 }
+
 html {
-	font-size: $base-font-size;
+	font-size: $font-size-base;
 }
 
 body {
 	font-size: 100%;
-	background-color: $body-bg;
 	color: $primary-color;
+	background-color: $body-bg;
+	background: -moz-linear-gradient(top,  lighten($body-bg, 0.7) 0%, $body-bg 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  lighten($body-bg, 0.7) 0%,$body-bg 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  lighten($body-bg, 0.7) 0%,$body-bg 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 nav {
-	> ul {
+	ul {
 		padding-left: 0;
 		list-style: none;
+	}
+	li.active, li.current-menu-item, li.current_page_item {
+        a {
+            color: $secondary-color;
+        }
+    }
+	a {
+		color: $primary-color;
+		&:hover, &:focus, &:active {
+			color: $secondary-color;
+		}
 	}
 }
 
@@ -29,6 +44,25 @@ iframe {
 	border: none;
 	background-color: transparent;
 	max-width: 100%;
+}
+
+article a {
+	color: $secondary-color;
+	&:hover, &:focus, &:active {
+		color: darken($secondary-color, 10%);
+	}
+	&[target="_blank"] {
+		&:after {
+			content: "\f14c";
+			display: inline-block;
+			vertical-align: top;
+			width: 10px;
+			height: 10px;
+			font-family: "FontAwesome", sans-serif;
+			font-size: 0.6rem;
+			margin-top: -10px;
+		}
+	}
 }
 
 [data-bg] {

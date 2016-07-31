@@ -3,6 +3,12 @@ $primary: 			#20656f;
 $secondary: 		#ed3426;
 $primary-color: 	$primary;
 $secondary-color: 	$secondary;
+$inverse: 			invert($primary);
+$inverse-color: 	$inverse;
+$dark: 				#222222;
+$dark-color: 		$dark;
+$light: 			#f1f1f1;
+$light-color: 		$light;
 
 $success: 			#5cb85c;
 $info: 				#5bc0de;
@@ -37,10 +43,14 @@ $margin-lg: $margin*2;
 $margin-xl: $margin*4;
 
 // Padding
+$padding: 	 0.833333rem;
 $padding-xs: $padding/4;
 $padding-sm: $padding/2;
 $padding-lg: $padding*2;
 $padding-xl: $padding*4;
+
+// Transitions
+$transition-default: all 0.3s ease-in-out;
 
 
 // =====================
@@ -57,11 +67,11 @@ $border0-radius-small:  	2px !default;
 
 $grid-gutter-width: 		30px !default;
 
-$container-tablet: 			(720px + $grid-gutter-width) !default;
-$container-sm:	 			$container-tablet !default;
+// $container-tablet: 			(720px + $grid-gutter-width) !default;
+// $container-sm:	 			$container-tablet !default;
 
-$container-desktop: 		(940px + $grid-gutter-width) !default;
-$container-md: 				$container-desktop !default;
+// $container-desktop: 		(940px + $grid-gutter-width) !default;
+// $container-md: 				$container-desktop !default;
 
-$container-large-desktop:	(1340px + $grid-gutter-width) !default;
-$container-lg: 				$container-large-desktop !default;
+// $container-large-desktop:	(1340px + $grid-gutter-width) !default;
+// $container-lg: 				$container-large-desktop !default;

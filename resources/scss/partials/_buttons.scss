@@ -1,0 +1,8 @@
+.btn {
+	&-link {
+		color: $secondary-color;
+		&:hover, &:focus, &:active {
+			color: darken($secondary-color, 10%);
+		}
+	}
+}

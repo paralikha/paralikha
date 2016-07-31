@@ -1,9 +1,12 @@
 node_modules/
 bower_components/
+.sass-cache/
+vendor/
 
 src/
 _src/
 
 demo/
+_demo/
 
 com/wp-config.php

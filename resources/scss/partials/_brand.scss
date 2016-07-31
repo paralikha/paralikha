@@ -1,0 +1,10 @@
+.brand {
+	z-index: 998;
+	&-copy {
+		position: relative;
+		z-index: 1;
+	}
+	&-main {
+		transition: all 0.7s ease-out;
+	}
+}

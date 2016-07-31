@@ -24,14 +24,14 @@ var gulp = require('gulp'),
 |       - ./css/
 |       - ./com/wp-content/themes/paraluman/
 */
-gulp.task('sass', function() {
+gulp.task('sass', function () {
     return sass('resources/scss/app.scss', { style: 'expanded' })
         .pipe(autoprefixer('last 2 version'))
         .pipe(gulp.dest('css'))
         .pipe(rename({suffix: '.min'}))
         .pipe(cssnano())
-        .pipe(gulp.dest('com/wp-content/themes/paraluman'))
         .pipe(gulp.dest('css'))
+        .pipe(gulp.dest('com/wp-content/themes/paraluman'))
         .pipe(notify({ message: 'Completed compiling SASS files' }));
 });
 
@@ -47,12 +47,13 @@ gulp.task('sass', function() {
 |       - ./js/
 |       - ./com/wp-content/themes/paraluman/js/
 */
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
     return gulp.src('resources/scripts/**/*.js')
         // .pipe(jshint('.jshintrc'))
         // .pipe(jshint.reporter('default'))
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest('js'))
+        .pipe(gulp.dest('com/wp-content/themes/paraluman/js'))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(gulp.dest('js'))
@@ -72,7 +73,7 @@ gulp.task('scripts', function() {
 |       - ./img/
 |       - ./com/wp-content/themes/paraluman/img/
 */
-gulp.task('images', function() {
+gulp.task('images', function () {
     return gulp.src('resources/images/**/*')
         .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
         .pipe(gulp.dest('img'))
@@ -81,11 +82,47 @@ gulp.task('images', function() {
 });
 
 /*
+| # Copy Vendor
+| if ever you need to copy
+| the dev files to production.
+| It is recommended to use a CDN.
+|
+| @run gulp copy-vendor
+*/
+gulp.task('copy-vendor-to-com', function () {
+    gulp.src('vendor/tether/dist/**/*')
+        .pipe(gulp.dest('com/wp-content/themes/paraluman/vendor/tether/dist'));
+
+    gulp.src('vendor/bootstrap/dist/**/*')
+        .pipe(gulp.dest('com/wp-content/themes/paraluman/vendor/bootstrap/dist'));
+
+    gulp.src('vendor/smoothstate/jquery.smoothState.min.js')
+        .pipe(gulp.dest('com/wp-content/themes/paraluman/vendor/smoothstate'));
+
+    gulp.src('vendor/fullpage.js/dist/**/*')
+        .pipe(gulp.dest('com/wp-content/themes/paraluman/vendor/fullpage.js/dist'));
+
+    gulp.src('vendor/fullpage.js/vendors/**/*')
+        .pipe(gulp.dest('com/wp-content/themes/paraluman/vendor/fullpage.js/vendors'));
+
+    gulp.src('vendor/animate.css/animate.min.css')
+        .pipe(gulp.dest('com/wp-content/themes/paraluman/vendor/animate.css'));
+
+    gulp.src('vendor/font-awesome/css/**/*')
+        .pipe(gulp.dest('com/wp-content/themes/paraluman/vendor/font-awesome/css'));
+
+    gulp.src('vendor/font-awesome/fonts/**/*')
+        .pipe(gulp.dest('com/wp-content/themes/paraluman/vendor/font-awesome/fonts'))
+
+        .pipe(notify({ message: 'Vendor files copied to com folder' }));
+})
+
+/*
 | # Clean
 |
 | @run  gulp clean
 */
-gulp.task('clean', function() {
+gulp.task('clean', function () {
     return del(['css', 'js', 'img']);
 });
 
@@ -94,7 +131,7 @@ gulp.task('clean', function() {
 |
 | @run  gulp default
 */
-gulp.task('default', ['clean'], function() {
+gulp.task('default', ['clean'], function () {
     gulp.start('sass', 'scripts', 'images');
 });
 
@@ -103,14 +140,14 @@ gulp.task('default', ['clean'], function() {
 |
 | @run  gulp watch
 */
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     // Create LiveReload server
     // livereload.listen();
     // Watch any files in , reload on change
     // gulp.watch(['**']).on('change', livereload.changed);
 
     // Watch .scss files
-    gulp.watch('resources/sass/**/*.scss', ['sass']);
+    gulp.watch('resources/scss/**/*.scss', ['sass']);
     // Watch .js files
     gulp.watch('resources/scripts/**/*.js', ['scripts']);
     // Watch image files
