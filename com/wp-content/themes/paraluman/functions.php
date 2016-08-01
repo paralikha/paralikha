@@ -21,7 +21,7 @@ if (function_exists('add_theme_support'))
     add_theme_support('automatic-feed-links');
 
     // Localisation Support
-    load_theme_textdomain(PARALIKHA_TEXT_DOMAIN, get_template_directory() . '/languages');
+    load_theme_textdomain(PARALUMAN_TEXT_DOMAIN, get_template_directory() . '/languages');
 }
 
 /**
@@ -39,16 +39,16 @@ add_action('wp_print_scripts',  	'paralikha_enqueue_footer_scripts');
 
 function paralikha_enqueue_login_styles()
 {
-    wp_enqueue_style('paralikha-login', get_template_directory_uri() . '/login-style.css', false, PARALIKHA_VERSION);
+    wp_enqueue_style('paralikha-login', get_template_directory_uri() . '/login-style.css', false, PARALUMAN_VERSION);
 }
 
 function paralikha_enqueue_login_scripts()
 {
-    wp_enqueue_script('paralikha-login', get_template_directory_uri() . '/js/login.js', true, PARALIKHA_VERSION);
+    wp_enqueue_script('paralikha-login', get_template_directory_uri() . '/js/login.js', true, PARALUMAN_VERSION);
 }
 
 function paralikha_enqueue_admin_styles() {
-    wp_register_script('paralikha-admin', get_template_directory_uri() . '/js/admin.js', array(), PARALIKHA_VERSION);
+    wp_register_script('paralikha-admin', get_template_directory_uri() . '/js/admin.js', array(), PARALUMAN_VERSION);
     wp_enqueue_script('paralikha-admin');
 }
 
@@ -73,7 +73,7 @@ function paralikha_enqueue_styles()
     wp_enqueue_style('fullpage');
 
 	# Main
-    wp_register_style('paralikha', get_template_directory_uri() . '/app.min.css', array(), PARALIKHA_VERSION, 'all');
+    wp_register_style('paralikha', get_template_directory_uri() . '/app.min.css', array(), PARALUMAN_VERSION, 'all');
     wp_enqueue_style('paralikha');
 
     wp_register_style('style', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
@@ -96,7 +96,7 @@ function paralikha_enqueue_header_scripts()
         wp_register_script('scrollOverflow', get_template_directory_uri() . '/vendor/fullpage.js/vendors/scrolloverflow.min.js', array('jquery'), '1.0.0', true);
 	    wp_enqueue_script('scrollOverflow');
 
-		wp_register_script('smoothState', get_template_directory_uri() . '/vendor/smoothstate/jquery.smoothState.min.js', array('jquery'), PARALIKHA_VERSION, true);
+		wp_register_script('smoothState', get_template_directory_uri() . '/vendor/smoothstate/jquery.smoothState.min.js', array('jquery'), PARALUMAN_VERSION, true);
 	    wp_enqueue_script('smoothState');
 
 	    wp_register_script('fullpage', get_template_directory_uri() . '/vendor/fullpage.js/dist/jquery.fullpage.min.js', array('jquery'), '2.8.2', true);
@@ -115,8 +115,10 @@ function paralikha_enqueue_footer_scripts()
     wp_enqueue_script('bootstrap');
 
     # Main
-    wp_register_script('scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), PARALIKHA_VERSION, true);
-    wp_enqueue_script('scripts');
+    if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+        wp_register_script('scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), PARALUMAN_VERSION, true);
+        wp_enqueue_script('scripts');
+    }
 }
 
 /**
@@ -124,17 +126,17 @@ function paralikha_enqueue_footer_scripts()
  *
  */
 
-add_action('init', 'paralikha_register_nav_menus');
+add_action('init', 'paraluman_register_nav_menus');
 
-function paralikha_register_nav_menus()
+function paraluman_register_nav_menus()
 {
     register_nav_menus(array(
-        'landing-menu' 	=> __('Landing Page Menu', PARALIKHA_TEXT_DOMAIN),
-        'main-menu' 	=> __('Main Menu', PARALIKHA_TEXT_DOMAIN),
-        'social-menu' 	=> __('Social Menu', PARALIKHA_TEXT_DOMAIN),
-        'header-menu' 	=> __('Header Menu', PARALIKHA_TEXT_DOMAIN),
-        'sidebar-menu' 	=> __('Sidebar Menu', PARALIKHA_TEXT_DOMAIN),
-        'extra-menu' 	=> __('Extra Menu', PARALIKHA_TEXT_DOMAIN),
+        'landing-menu' 	=> __('Landing Page Menu', PARALUMAN_TEXT_DOMAIN),
+        'main-menu' 	=> __('Main Menu', PARALUMAN_TEXT_DOMAIN),
+        'social-menu' 	=> __('Social Menu', PARALUMAN_TEXT_DOMAIN),
+        'header-menu' 	=> __('Header Menu', PARALUMAN_TEXT_DOMAIN),
+        'sidebar-menu' 	=> __('Sidebar Menu', PARALUMAN_TEXT_DOMAIN),
+        'extra-menu' 	=> __('Extra Menu', PARALUMAN_TEXT_DOMAIN),
     ));
 }
 
@@ -215,24 +217,24 @@ add_action('wp_head', 	 'paraluman_print_favicons');
 function paraluman_print_favicons()
 { ?>
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-57x57.png?v=<?php echo PARALIKHA_VERSION; ?>">
-    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-60x60.png?v=<?php echo PARALIKHA_VERSION; ?>">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-72x72.png?v=<?php echo PARALIKHA_VERSION; ?>">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-76x76.png?v=<?php echo PARALIKHA_VERSION; ?>">
-    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-114x114.png?v=<?php echo PARALIKHA_VERSION; ?>">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-120x120.png?v=<?php echo PARALIKHA_VERSION; ?>">
-    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-144x144.png?v=<?php echo PARALIKHA_VERSION; ?>">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-152x152.png?v=<?php echo PARALIKHA_VERSION; ?>">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-180x180.png?v=<?php echo PARALIKHA_VERSION; ?>">
-    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon-32x32.png?v=<?php echo PARALIKHA_VERSION; ?>" sizes="32x32">
-    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon-96x96.png?v=<?php echo PARALIKHA_VERSION; ?>" sizes="96x96">
-    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon-16x16.png?v=<?php echo PARALIKHA_VERSION; ?>" sizes="16x16">
-    <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/img/icons/manifest.json?v=<?php echo PARALIKHA_VERSION; ?>">
-    <link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/img/icons/safari-pinned-tab.svg?v=<?php echo PARALIKHA_VERSION; ?>" color="#ee3025">
-    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico?v=<?php echo PARALIKHA_VERSION; ?>">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-57x57.png?v=<?php echo PARALUMAN_VERSION; ?>">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-60x60.png?v=<?php echo PARALUMAN_VERSION; ?>">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-72x72.png?v=<?php echo PARALUMAN_VERSION; ?>">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-76x76.png?v=<?php echo PARALUMAN_VERSION; ?>">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-114x114.png?v=<?php echo PARALUMAN_VERSION; ?>">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-120x120.png?v=<?php echo PARALUMAN_VERSION; ?>">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-144x144.png?v=<?php echo PARALUMAN_VERSION; ?>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-152x152.png?v=<?php echo PARALUMAN_VERSION; ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon-180x180.png?v=<?php echo PARALUMAN_VERSION; ?>">
+    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon-32x32.png?v=<?php echo PARALUMAN_VERSION; ?>" sizes="32x32">
+    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon-96x96.png?v=<?php echo PARALUMAN_VERSION; ?>" sizes="96x96">
+    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon-16x16.png?v=<?php echo PARALUMAN_VERSION; ?>" sizes="16x16">
+    <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/img/icons/manifest.json?v=<?php echo PARALUMAN_VERSION; ?>">
+    <link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/img/icons/safari-pinned-tab.svg?v=<?php echo PARALUMAN_VERSION; ?>" color="#ee3025">
+    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico?v=<?php echo PARALUMAN_VERSION; ?>">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/img/icons/mstile-144x144.png?v=<?php echo PARALIKHA_VERSION; ?>">
-    <meta name="msapplication-config" content="<?php echo get_template_directory_uri(); ?>/img/icons/browserconfig.xml?v=<?php echo PARALIKHA_VERSION; ?>">
+    <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/img/icons/mstile-144x144.png?v=<?php echo PARALUMAN_VERSION; ?>">
+    <meta name="msapplication-config" content="<?php echo get_template_directory_uri(); ?>/img/icons/browserconfig.xml?v=<?php echo PARALUMAN_VERSION; ?>">
     <meta name="theme-color" content="#ffffff">
     <!-- /Favicons -->
     <?php

@@ -1,11 +1,10 @@
-
 // All functions before .ready
 (function ($, document) {
 	// Variables
 	var _fullpage = {
 		create: function ($) {
 			$ = jQuery;
-			if (jQuery.fn.fullpage) {
+			if ($.fn.fullpage) {
 				var f = $(document).find('[data-toggle=fullpage]').fullpage({
 					paddingTop: 		'3.88889rem',
 					paddingBottom: 		'3.88889rem',
@@ -33,18 +32,19 @@
 			return false;
 		},
 		destroy: function ($) {
-			// console.log(jQuery.fn.fullpage);
-			if (jQuery.fn.fullpage) {
-				jQuery.fn.fullpage.destroy('all');
+			// console.log($.fn.fullpage);
+			if ($.fn.fullpage) {
+				$.fn.fullpage.destroy('all');
 				console.log('[OK] fullpage destroyed');
+				return true;
 			}
 			return;
 		},
 		reset: function ($) {
-			if (jQuery.fn.fullpage) {
-				this.destroy();
-				this.create();
+			if ($.fn.fullpage && this.destroy($)) {
 				console.log("[OK] fullpage reset");
+				this.create($);
+				return true;
 			}
 			return;
 		}
@@ -64,7 +64,7 @@
 	}
 
 	var smoothStateOptions = {
-		prefetch: false,
+		prefetch: true,
 		cacheLength: 5,
 		onStart: {
 			duration: 800,

@@ -1,11 +1,10 @@
-
 // All functions before .ready
 (function ($, document) {
 	// Variables
 	var _fullpage = {
 		create: function ($) {
 			$ = jQuery;
-			if (jQuery.fn.fullpage) {
+			if ($.fn.fullpage) {
 				var f = $(document).find('[data-toggle=fullpage]').fullpage({
 					paddingTop: 		'3.88889rem',
 					paddingBottom: 		'3.88889rem',
@@ -33,18 +32,19 @@
 			return false;
 		},
 		destroy: function ($) {
-			// console.log(jQuery.fn.fullpage);
-			if (jQuery.fn.fullpage) {
-				jQuery.fn.fullpage.destroy('all');
+			// console.log($.fn.fullpage);
+			if ($.fn.fullpage) {
+				$.fn.fullpage.destroy('all');
 				console.log('[OK] fullpage destroyed');
+				return true;
 			}
 			return;
 		},
 		reset: function ($) {
-			if (jQuery.fn.fullpage) {
-				this.destroy();
-				this.create();
+			if ($.fn.fullpage && this.destroy($)) {
 				console.log("[OK] fullpage reset");
+				this.create($);
+				return true;
 			}
 			return;
 		}
@@ -64,7 +64,7 @@
 	}
 
 	var smoothStateOptions = {
-		prefetch: false,
+		prefetch: true,
 		cacheLength: 5,
 		onStart: {
 			duration: 800,
@@ -112,15 +112,17 @@
 })(jQuery, document);
 (function ($, document) {
 
-	/**
-	 * Brand Hover Effect
-	 * Specific to .brand-main
-	 * @type {[type]}
-	 */
-	var $brand = $('.brand-main');
-	_brandHoverEffect = {
-		mouse: function (evt, $brand) {
-			var offset: $brand.offset();
+    var $brand = $('.brand-main');
+    /**
+     * Brand Hover Effect
+     * Specific to .brand-main
+     *
+     * @type {obj}
+     */
+    _brandHoverEffect = {
+        mouse: function (evt) {
+        	var $brand = $('.brand-main');
+			var offset = $brand.offset();
 			var rotation = -135;
             var center_x = (offset.left) + ($brand.width()/2);
             var center_y = (offset.top) + ($brand.height()/2);
@@ -136,23 +138,21 @@
         }
 	}
 
-
-
     if ($brand.length > 0) {
         $('#main-menu a').hover(function (e) {
-            $(document).bind('mousemove', _brandHoverEffect.mouse, e, $brand);
+            $(document).bind('mousemove', _brandHoverEffect.mouse);
         }, function (e) {
             $brand.css('-moz-transform', 'translateX(-50%) translateY(-50%) rotateZ(0deg)');
             $brand.css('-webkit-transform', 'translateX(-50%) translateY(-50%) rotateZ(0deg)');
             $brand.css('-o-transform', 'translateX(-50%) translateY(-50%) rotateZ(0deg)');
             $brand.css('-ms-transform', 'translateX(-50%) translateY(-50%) rotateZ(0deg)');
-            $(document).unbind('mousemove', mouse);
+            $(document).unbind('mousemove', _brandHoverEffect.mouse);
         }).click(function (e) {
             $brand.css('-moz-transform', 'translateX(-50%) translateY(-50%) rotateZ(0deg)');
             $brand.css('-webkit-transform', 'translateX(-50%) translateY(-50%) rotateZ(0deg)');
             $brand.css('-o-transform', 'translateX(-50%) translateY(-50%) rotateZ(0deg)');
             $brand.css('-ms-transform', 'translateX(-50%) translateY(-50%) rotateZ(0deg)');
-            $(document).unbind('mousemove', mouse);
+            $(document).unbind('mousemove', _brandHoverEffect.mouse);
         });
     }
 
@@ -165,17 +165,20 @@
 	        case 27: // Esc
 	        	if ($('.modal').hasClass('in')) {
 	        		$(document).find('#quote').click();
+	        		console.log("[clicked] Esc key");
 	        	}
 	        	return false;
-	        case 77:
+	        case 77: // M
 	        	if ($('.nav-landing-nav')) {
 	        		e.preventDefault();
 	        		$(document).find('.brand-main').click();
+	        		console.log("[clicked] M key");
 	        	}
 	        	return false;
 	        case 82: // R
 	            e.preventDefault();
 	            $(document).find('#quote').click();
+	            console.log("[clicked] R key");
 	            return false;
 	    }
 	    return true;

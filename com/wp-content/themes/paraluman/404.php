@@ -13,7 +13,7 @@
                     <img class="img-rotate-45" src="<?php echo get_template_directory_uri() . "/img/logos/main.png" ?>" alt="4">
                 </div>
 
-				<h1 class="text-muted"><?php _e( 'Page not found', 'html5blank' ); ?></h1>
+				<h1 class="text-muted"><?php _e( 'Page not found', PARALUMAN_TEXT_DOMAIN ); ?></h1>
 				<a href="<?php echo home_url(); ?>"><?php _e( 'Go home.', 'html5blank' ); ?></a>
 
 			</article>

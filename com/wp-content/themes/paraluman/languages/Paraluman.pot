@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: HTML5 Blank WordPress Theme\n"
-"POT-Creation-Date: 2013-09-18 00:26+0100\n"
+"Project-Id-Version: Paraluman Wordpress Theme\n"
+"POT-Creation-Date: 2016-08-01 00:26+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Jürgen Rabe | www.egado.de <rabe@egado.de>\n"
+"Last-Translator: John Lioneil Dionisio <john.dionisio1@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../404.php:9
+#: ../404.php:16
 msgid "Page not found"
 msgstr ""
 
