@@ -27,6 +27,8 @@
     "bootstrap": "^3.3.6",
     "animate.css": "^3.5.2",
     "hover": "Hover#^2.0.2",
-    "smoothstate": "^0.7.2"
+    "smoothstate": "^0.7.2",
+    "Scrollify": "^1.0.4",
+    "selectize": "selectize.js#^0.12.2"
   }
 }

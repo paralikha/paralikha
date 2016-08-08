@@ -1,10 +1,53 @@
 .section {
 	display: block;
+	height: 100%;
+	position: relative;
+	padding: $padding $padding-lg*2;
 	&-title {
 		margin-top: 0;
 		margin-bottom: $margin-sm;
 	}
 	&-body {
 		display: block;
+	}
+	&-table {
+		width: 100%;
+		display: table;
+	}
+	&-cell-centered {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	&-cell-top {
+		display: table-cell;
+		vertical-align: top;
+	}
+	&-cell-bottom {
+		display: table-cell;
+		vertical-align: bottom;
+	}
+}
+
+.nav-fixed, .sidebar {
+	~ .main-fluid {
+		.section {
+			padding-left: $sidebar-width-wide;
+		}
+	}
+	&.toggled {
+		~ .main-fluid .section {
+			padding-left: $sidebar-width-narrow;
+		}
+	}
+}
+
+.nav-fixed ~ .main-fluid {
+	.section {
+		padding-top: 0;
+		padding-right: 0;
+		padding-bottom: 0;
+	}
+	.section-cell {
+		padding: $padding $padding-lg*2;
 	}
 }

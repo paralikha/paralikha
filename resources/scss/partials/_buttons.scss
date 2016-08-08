@@ -5,4 +5,58 @@
 			color: darken($secondary-color, 10%);
 		}
 	}
+	&-outline {
+		@extend .btn-outline;
+		border: 2px solid $secondary-color;
+		background: transparent;
+		&:focus, &:active, &:hover {
+			background: $secondary-color;
+		}
+		&-primary {
+			border-color: $primary-color;
+		}
+		&-secondary {
+			border-color: $secondary-color;
+			color: white;
+		}
+	}
+}
+
+.bg {
+	&-primary {
+		.btn-outline {
+			border-color: $primary-color;
+			&:focus, &:active, &:hover {
+				background-color: white;
+				color: $primary-color;
+			}
+		}
+	}
+	&-secondary {
+		.btn-outline {
+			border-color: $light-color;
+			&:focus, &:active, &:hover {
+				background-color: white;
+				color: $secondary-color;
+			}
+		}
+	}
+	&-dark {
+		.btn-outline {
+			border-color: $dark-color;
+			&:focus, &:active, &:hover {
+				background-color: $light-color;
+				color: $dark-color;
+			}
+		}
+	}
+	&-light {
+		.btn-outline {
+			border-color: $light-color;
+			&:focus, &:active, &:hover {
+				background-color: $dark-color;
+				color: $light-color;
+			}
+		}
+	}
 }

@@ -1,0 +1,35 @@
+.form {
+	&-control-outline {
+		@extend .form-control;
+		border: 2px solid $secondary-color;
+		background-color: transparent;
+		&:focus, &:active {
+			background: transparent;
+		}
+		&-primary {
+			border-color: $primary-color;
+		}
+		&-secondary {
+			border-color: $secondary-color;
+		}
+	}
+}
+
+.bg {
+	&-primary, &-secondary, &-dark {
+		.form-control-outline {
+			border-color: $light-color;
+			&::placeholder {
+				color: $light-color;
+			}
+		}
+	}
+	&-light {
+		.form-control-outline {
+			border-color: $dark-color;
+			&::placeholder {
+				color: $dark-color;
+			}
+		}
+	}
+}

@@ -8,3 +8,63 @@
 		transition: all 0.7s ease-out;
 	}
 }
+
+.sidebar-brand {
+	display: block;
+	margin-top: $margin;
+	width: 100%;
+	&:before, &:after {
+		@extend .clearfix !optional;
+	}
+}
+.nav-brand {
+	@extend .sidebar-brand;
+}
+
+img.sidebar-brand, .sidebar-brand img {
+	display: block;
+	text-align: right;
+	margin-left: auto;
+	margin-right: 0;
+}
+
+.logo {
+	&-fixed {
+		position: fixed !important;
+		&.logo-part {
+			z-index: 999;
+		}
+	}
+	&-part {
+		position: absolute;
+		width: 45px;
+		height: auto;
+		margin: $margin;
+		&:first-child {
+			top: 0;
+			left: 0;
+		}
+		&:last-child {
+			bottom: 0;
+			right: 0;
+		}
+	}
+}
+
+.sidebar ~ .main:not(.main-fluid) .logo-fixed:first-child,
+.nav-main ~ .main:not(.main-fluid) .logo-fixed:first-child {
+	transform: translateX($sidebar-width-wide);
+}
+.sidebar.toggled ~ .main:not(.main-fluid) .logo-fixed:first-child,
+.nav-main.toggled ~ .main:not(.main-fluid) .logo-fixed:first-child {
+	transform: translateX($sidebar-width-narrow);
+}
+
+.sidebar, .nav-fixed {
+	~ .main-fluid .logo-fixed:first-child {
+		transform: translateX($sidebar-width-wide);
+	}
+	&.toggled ~ .main-fluid .logo-fixed:first-child {
+		transform: translateX($sidebar-width-narrow);
+	}
+}

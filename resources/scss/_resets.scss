@@ -3,7 +3,7 @@ html, body {
 }
 
 html {
-	font-size: $font-size-base;
+	font-size: $font-size-base-px;
 }
 
 body {
@@ -39,6 +39,18 @@ textarea {
 	min-height: 250px;
 }
 
+blockquote {
+	margin: 0 0 $margin $margin*2;
+	background: lighten($body-bg, 2%);
+	padding: $padding;
+	font-style: italic;
+	border-left: 2px solid lighten($primary-color, 20%);
+	color: $gray-dark-color;
+	p {
+		margin-bottom: 0;
+	}
+}
+
 iframe {
 	overflow: hidden !important;
 	border: none;
@@ -68,4 +80,17 @@ article a {
 [data-bg] {
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: $body-bg;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
 }

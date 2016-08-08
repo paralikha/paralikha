@@ -16,21 +16,31 @@ $warning: 			#f0ad4e;
 $danger: 			#ed3200;
 
 $gray: 				#ededed;
+$gray-color: 		$gray;
+$gray-dark:			darken($gray, 50%);
+$gray-dark-color:   $gray-dark;
+$gray-light: 		lighten($gray, 2%);
+$gray-light-color: 	$gray-light;
 
 $body-bg: 			$gray;
 
 // Font
-$font-size-base: 18px;
+$font-size-base-rem: 1rem;
+$font-size-base-px: 18px;//3.5vh;
+$font-size-base: $font-size-base-rem;
 $line-height-base: 1.8;
+$line-height-narrow: 0.8;
+$line-height-wide: 2.8;
 
-$primary-font-family: "Lato", "Roboto", "Open Sans", "Helvetica Nueue", sans-serif;
-$secondary-font-family: 'Raleway', 'Lato Bold', 'Lato', serif;
+$primary-font-family: "Raleway", "Roboto", "Open Sans", "Helvetica Nueue", sans-serif;
+$secondary-font-family: "Lato", "Lato Thin", "Lato", serif;
 $heading-font-family: $primary-font-family;
 $subheading-font-family: $secondary-font-family;
 
 $font-weight-hairline: 100;
 $font-weight-thin: 200;
 $font-weight-light: 300;
+$font-weight-base: 400;
 $font-weight-bold: 700;
 $font-weight-heavy: 800;
 $font-weight-black: 900;
@@ -52,9 +62,22 @@ $padding-xl: $padding*4;
 // Transitions
 $transition-default: all 0.3s ease-in-out;
 
+// Sidebar
+$sidebar-width-wide: 10vw;//150px;
+$sidebar-width-narrow: 5vw;//50px;
+
 
 // =====================
 // Bootstrap Override
+$enable-flex:               false !default;
+$enable-rounded:            false !default;
+$enable-shadows:            false !default;
+$enable-gradients:          false !default;
+$enable-transitions:        true !default;
+$enable-hover-media-query:  false !default;
+$enable-grid-classes:       true !default;
+$enable-print-styles:       true !default;
+
 $brand-primary: 			$primary !default;
 $brand-success: 			$success !default;
 $brand-info: 				$info !default;
@@ -63,15 +86,20 @@ $brand-danger: 				$danger !default;
 
 $border-radius-base: 		0 !default;
 $border-radius-large:   	0 !default;
-$border0-radius-small:  	2px !default;
+$border-radius-small:  		0 !default;
 
 $grid-gutter-width: 		30px !default;
 
-// $container-tablet: 			(720px + $grid-gutter-width) !default;
-// $container-sm:	 			$container-tablet !default;
+$container-tablet: 			(720px + $grid-gutter-width) !default;
+$container-sm:	 			$container-tablet !default;
 
-// $container-desktop: 		(940px + $grid-gutter-width) !default;
-// $container-md: 				$container-desktop !default;
+$container-desktop: 		(940px + $grid-gutter-width) !default;
+$container-md: 				$container-desktop !default;
 
-// $container-large-desktop:	(1340px + $grid-gutter-width) !default;
-// $container-lg: 				$container-large-desktop !default;
+$container-large-desktop:	(1340px + $grid-gutter-width) !default;
+$container-lg: 				$container-large-desktop !default;
+
+$breakpoint-sm: 			544px;
+$breakpoint-md: 			768px;
+$breakpoint-lg: 			992px;
+$breakpoint-xl: 			1200px;

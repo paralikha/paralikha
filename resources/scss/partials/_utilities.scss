@@ -23,14 +23,15 @@
 .close {
 	outline: none;
 	&-center {
+		box-shadow: none;
+		color: white;
 		display: block;
+		float: none;
 		font-size: $font-size-base * 2;
 		margin: 0 auto;
-		width: 100%;
-		color: white;
 		opacity: 1;
+		position: relative;
 		text-align: center;
-		box-shadow: none;
 		text-shadow: none;
 	}
 }
@@ -40,6 +41,9 @@
 }
 
 .pinned {
+	&-link {
+		font-size: $font-size-base;
+	}
 	&-bottom-left {
 		bottom: 0;
 		left: 0;

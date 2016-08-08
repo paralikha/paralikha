@@ -17,10 +17,12 @@
 	        	}
 	        	return false;
 	        case 82: // R
-	            e.preventDefault();
-	            $(document).find('#quote').click();
-	            console.log("[clicked] R key");
-	            return false;
+	        	if (!$('input, textarea, select').is(':focus')) {
+		            e.preventDefault();
+		            $(document).find('#quote').click();
+		            console.log("[clicked] R key");
+		            return false;
+	        	}
 	    }
 	    return true;
 	}

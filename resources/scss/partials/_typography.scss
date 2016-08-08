@@ -1,0 +1,29 @@
+a,
+h1, h2, h3, h4, h5, h6,
+legend, abbr, blockquote {
+	font-family: $primary-font-family;
+	line-height: $line-height-narrow;
+}
+
+h1, .h1 {
+	font-weight: $font-weight-heavy;
+}
+
+h2, .h2 {
+	font-weight: $font-weight-bold - 100;
+}
+
+h3, .h3 {
+	font-weight: $font-weight-bold;
+	font-size: $font-size-base * 1.33;
+}
+
+p {
+	font-family: $secondary-font-family;
+	font-weight: $font-weight-base;
+	line-height: $line-height-base;
+}
+
+.bg-primary a, .bg-secondary a {
+	color: white;
+}

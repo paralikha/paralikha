@@ -1,6 +1,48 @@
 // All functions before .ready
 (function ($, document) {
 	// Variables
+	var _Scrollify = {
+		create: function ($) {
+			$.scrollify({
+	        	section : ".section",
+		        sectionName : "section-name",
+		        interstitialSection : "",
+		        easing: "easeOutExpo",
+		        scrollSpeed: 800,
+		        offset : 0,
+		        scrollbars: false,
+		        standardScrollElements: "",
+		        setHeights: true,
+		        overflowScroll: true,
+		        before:function() {},
+		        after:function() {},
+		        afterResize:function() {},
+		        afterRender:function() {
+		        	$('.slides').each(function (e) {
+		        		var $slides = $(this);
+		        		var originalWidth = $slides.parent().outerWidth();
+		        		var $children = $slides.find('.slide');
+		        		$slides.css({width: originalWidth * $children.length});
+		        		$children.each(function (e) {
+		        			$(this).css({width: originalWidth});
+		        		});
+		        		$slides.parent().css({'overflow-x':'hidden'});
+		        	})
+		        	$('[data-bg].section').each(function (e) {
+				        $(this).css({background:$(this).data('bg')});
+				    });
+		        },
+	        });
+		},
+		destroy: function ($) {
+			$.scrollify.destroy();
+		},
+		reset: function ($) {
+			this.destroy($);
+			this.create($);
+		}
+	}
+
 	var _fullpage = {
 		create: function ($) {
 			$ = jQuery;
@@ -93,22 +135,25 @@
 			// body...
 		},
 		onAfter: function ($container, $newContent) {
-			_fullpage.reset($);
+			// _fullpage.reset($);
 			// $.fn.fullpage.destroy('all');
 			// _fullpage.create($);
+			_Scrollify.reset($);
 		}
 	}
 
 	// Fullpage init
-	_fullpage.create($);
+	// _fullpage.create($);
 	// Toggles
 	_toggles($);
+	_Scrollify.create($);
 
 	// smoothState
 	if ($.fn.smoothState) {
 		var smoothState = $(document).find('[data-toggle=smoothState]').smoothState(smoothStateOptions).data('smoothState');
 		console.log("[OK] smoothState init");
 	}
+
 })(jQuery, document);
 (function ($, document) {
 
@@ -176,10 +221,12 @@
 	        	}
 	        	return false;
 	        case 82: // R
-	            e.preventDefault();
-	            $(document).find('#quote').click();
-	            console.log("[clicked] R key");
-	            return false;
+	        	if (!$('input, textarea, select').is(':focus')) {
+		            e.preventDefault();
+		            $(document).find('#quote').click();
+		            console.log("[clicked] R key");
+		            return false;
+	        	}
 	    }
 	    return true;
 	}

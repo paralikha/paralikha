@@ -102,6 +102,9 @@ gulp.task('copy-vendor-to-com', function () {
     gulp.src('vendor/fullpage.js/dist/**/*')
         .pipe(gulp.dest('com/wp-content/themes/paraluman/vendor/fullpage.js/dist'));
 
+    gulp.src('vendor/Scrollify/jquery.scrollify.min.js')
+        .pipe(gulp.dest('com/wp-content/themes/paraluman/vendor/Scrollify'));
+
     gulp.src('vendor/fullpage.js/vendors/**/*')
         .pipe(gulp.dest('com/wp-content/themes/paraluman/vendor/fullpage.js/vendors'));
 

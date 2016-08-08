@@ -1,26 +1,22 @@
 <?php
-
 $q = new WP_Query();
 $pages = $q->query(array('post_type' => 'page'));
 
-// Filter through all pages and find Portfolio's children
-$child_pages = get_page_children( get_the_ID(), $pages ); ?>
-<?php foreach($child_pages as $post): setup_postdata($post); ?>
+# Find all children
+$child_pages = get_page_children( get_the_ID(), $pages );
+foreach ($child_pages as $post): setup_postdata($post); ?>
 
-	<section class="section" data-tooltip="<?php the_title(); ?>">
-		<?php # the_content(); ?>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-
-					<article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?>>
-						<div class="col-md-12">
+	<section class="section section-table" data-bg="#00FF00" data-tooltip="<?php the_title(); ?>">
+		<div class="section-cell section-cell-centered">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 							<h1 class="sr-only"><?php the_title(); ?></h1>
 							<?php the_content(); ?>
-							<?php # edit_post_link(); ?>
-						</div>
-					</article>
-
+							<?php edit_post_link(); ?>
+						</article>
+					</div>
 				</div>
 			</div>
 		</div>

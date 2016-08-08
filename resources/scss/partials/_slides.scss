@@ -1,0 +1,9 @@
+.slides {
+	min-height: 100%;
+	width: auto;
+	overflow-x: hidden;
+	.slide {
+		float: left;
+		width: 100%;
+	}
+}
