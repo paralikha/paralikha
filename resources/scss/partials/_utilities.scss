@@ -18,6 +18,9 @@
 	&-light {
 		background-color: $light-color !important;
 	}
+	&-white {
+		background-color: white;
+	}
 }
 
 .close {
@@ -39,8 +42,11 @@
 [class*="pinned-"] {
 	position: fixed;
 }
+[class*="floated-"] {
+	position: absolute;
+}
 
-.pinned {
+.pinned, .floated {
 	&-link {
 		font-size: $font-size-base;
 	}
@@ -59,5 +65,22 @@
 	&-top-right {
 		top: 0;
 		right: 0;
+	}
+}
+
+[class*="size-"] {
+	max-width: 100%;
+	height: auto;
+}
+
+.size {
+	&-fluid {
+		max-width: 100%;
+		height: auto;
+	}
+	&-cover {
+		max-width: none;
+		height: 100%;
+		width: auto;
 	}
 }

@@ -13,7 +13,7 @@
 }*/
 
 #tinymce {
-    font-size: 16px;
+    font-size: 18px;
 }
 #tinymce p,
 #tinymce li,
@@ -35,10 +35,32 @@
 #tinymce h4,
 #tinymce h5,
 #tinymce h6 {
-    font-family: "Raleway", "Lato Bold", "Open Sans", Helvetica, sans-serif;
+    font-family: "Raleway", "Lato", "Open Sans", Helvetica, sans-serif;
     font-weight: 600;
-    font-size: 1.1em;
-    line-height: 1.9;
+    line-height: 1;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+#tinymce h1 {
+    font-size: 4rem;
+    font-weight: 800;
+}
+#tinymce h2 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+#tinymce h3 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+#tinymce h4 {
+    font-size: 1rem;
+}
+#tinymce h5 {
+    font-size: 0.9rem;
+}
+#tinymce h6 {
+    font-size: 0.8rem;
 }
 #tinymce img {
     max-width: 100%;

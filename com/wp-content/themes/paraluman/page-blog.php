@@ -1,80 +1,64 @@
 <?php
+/**
+ * Template Name: Blog
+ */
+
 get_header(); ?>
 
-    <div id="page">
+    <div id="page" data-toggle="smoothState">
 
-        <?php get_template_part('partial', 'inner-menu') ?>
+        <?php get_template_part('partial', 'nav'); ?>
 
-        <main id="main" role="main" class="main animated fadeIn delay-half padding-top-60" data-toggle="fullpage">
-            <section class="section" data-tooltip="<?php the_title(); ?>">
-                <div class="container">
-                    <div class="content-body">
+        <main id="main" role="main" class="main main-fluid animated fadeIn delay-half" data-toggle="sectionScroller">
+            <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+                <!-- Section -->
+                <section class="section section-table" data-tooltip="<?php the_title(); ?>">
+                    <div class="section-cell section-cell-centered">
+                        <div class="container">
+                            <?php the_content(); ?>
+                        </div>
+                    </div>
+                </section>
+                <!-- /Section -->
+            <?php endwhile; endif; ?>
 
-                    <?php
-                    $q = new WP_Query();
-                    $posts = $q->query(array('post_type' => 'post', 'posts_per_page'=>4));
-                    foreach($posts as $key => $post): setup_postdata($post); ?>
+            <!-- Posts Section -->
+            <section class="section section-table" data-tooltip="<?php the_title(); ?>">
+                <div class="section-cell section-cell-centered">
+                    <div class="container">
+                        <div class="row">
+                            <?php
+                            $wp_query = new WP_Query();
+                            $posts = $wp_query->query(array('post_type' => 'post', 'posts_per_page' => 4));
+                            foreach($posts as $key => $post): setup_postdata($post);
+                                $is_showcase = (0 == $key) ? true : false; ?>
 
-                        <?php if ($key==0) : ?>
-                            <!-- <div class="row"> -->
-                                <div class="col-md-12">
-                                    <div class="blog-showcase">
-                                        <div class="blog-item blog-pbottom f-header">
-                                            <figure class="blog-item-content">
-                                                <?php the_post_thumbnail(); ?>
-                                                <span class="post-date">
-                                                    <span class="month"><?php echo date("M", strtotime(get_the_date())) ?></span>
-                                                    <span class="year"><?php echo date("Y", strtotime(get_the_date())) ?></span>
-                                                </span>
-                                                <figcaption class="blog-card">
-                                                    <a href="<?php the_permalink(); ?>"><h3 class="blog-title"><?php the_title(); ?></h3></a>
-                                                    <p class="blog-author"><?php the_author() ?></p>
-
-                                                    <div class="blog-social">
-                                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
+                                    <div class="col-md-<?php echo $is_showcase ? '12' : '4';  ?>">
+                                        <article class="blog blog-card <?php echo $is_showcase ? 'blog-showcase' : 'blog-item' ?>">
+                                            <?php the_post_thumbnail('cover'); ?>
+                                            <div class="blog-calendar floated-top-left">
+                                                <span class="blog-calendar-month"><?php the_month(); ?></span>
+                                                <hr class="separator">
+                                                <span class="blog-calendar-year"><?php the_year(); ?></span>
+                                            </div>
+                                            <div class="blog-block <?php echo $is_showcase ? 'text-sm-center' : 'text-xs-left bg-secondary'; ?>">
+                                                <a class="h3 blog-title <?php echo !$is_showcase ? 'text-sm-right' : '' ?>" data-toggle="tooltip" title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php echo $is_showcase ? get_the_title() : get_truncated(get_the_title()); ?></a>
+                                                <p class="blog-author text-uppercase <?php echo !$is_showcase ? 'text-sm-right' : '' ?>"><?php the_author_posts_link(); ?></p>
+                                                <?php if (!$is_showcase): ?><div class="floated-bottom-left"><?php endif; ?>
+                                                <?php pl_social_nav(); ?>
+                                                <?php if (!$is_showcase): ?></div><?php endif; ?>
+                                            </div>
+                                        </article>
                                     </div>
-                                </div>
-                            <!-- </div> -->
-                        <?php else: ?>
-                            <div class="col-md-4">
-                                <div>
-                                    <div class="blog-item blog-mini-item">
-                                        <figure class="blog-item-content">
-                                            <?php the_post_thumbnail(); ?>
-                                            <span class="post-date">
-                                                <span class="month"><?php echo date("M", strtotime(get_the_date())) ?></span>
-                                                <span class="year"><?php echo date("Y", strtotime(get_the_date())) ?></span>
-                                            </span>
-                                            <figcaption class="blog-card">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="blog-social">
-                                                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><h3 class="blog-title"><?php echo strlen(get_the_title()) > 25 ? substr(get_the_title(), 0, 25) . "..." : get_the_title(); ?></h3></a>
-                                                        <p class="blog-author"><?php the_author() ?></p>
-                                                    </div>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-                    <?php endforeach; wp_reset_query(); ?>
+
+                            <?php endforeach; wp_reset_query(); ?>
+                        </div>
                     </div>
                 </div>
             </section>
+            <!-- /Posts Section -->
+
+            <?php get_template_part("partial", "logos"); ?>
         </main>
     </div>
 

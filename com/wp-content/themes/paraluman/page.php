@@ -17,26 +17,6 @@
 										<h1 class="sr-only"><?php the_title(); ?></h1>
 										<?php the_content(); ?>
 										<?php edit_post_link(); ?>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus omnis eveniet id dolores corrupti expedita, velit aliquid, inventore sapiente voluptatem laborum illo cum sunt culpa molestiae ullam eius. Fugiat, veritatis.</p>
 									</article>
 									<!-- /Article -->
 								</div>
@@ -53,21 +33,12 @@
 									<!--Article -->
 									<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 										<div class="slides">
-											<section class="slide">
-												slide-1
-											</section>
-											<section class="slide">
-												slide-1
-											</section>
-											<section class="slide">
-												slide-1
-											</section>
-											<section class="slide">
-												slide-1
-											</section>
-											<section class="slide">
-												slide-1
-											</section>
+										    <div>
+										    	<div class="slide" style="width: 100%">0</div>
+										    	<div class="slide" style="width: 100%">1</div>
+										    	<div class="slide" style="width: 100%">2</div>
+										    	<div class="slide" style="width: 100%">3</div>
+										    </div>
 										</div>
 									</article>
 								</div>
@@ -75,8 +46,7 @@
 						</div>
 					</div>
 				</section>
-				<?php endwhile; ?>
-			<?php endif; ?>
+			<?php endwhile; endif; ?>
 
 			<?php get_template_part('partial', 'page'); ?>
 			<?php get_template_part("partial", "logos"); ?>

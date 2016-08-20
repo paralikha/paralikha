@@ -3,3 +3,34 @@
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
 }
+
+@mixin align-bottom {
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+}
+
+@mixin white {
+	color: white !important;
+	:focus, :hover, :active {
+		color: white !important;
+	}
+}
+
+@mixin haf($color: white) {
+	:hover, :focus, :active {
+		color: $color !important;
+	}
+}
+
+@mixin heading-weight($font-weight: 400) {
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: $font-weight;
+	}
+}
+
+@mixin heading-text-transform($style: 'inherit') {
+	h1, h2, h3, h4, h5, h6 {
+		text-transform: $style;
+	}
+}

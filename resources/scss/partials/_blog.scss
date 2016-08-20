@@ -1,0 +1,127 @@
+.blog {
+	&-card {
+		@extend .card;
+		margin-bottom: $margin*1.5;
+		.social-menu {
+			margin-top: $margin-lg;
+			a {
+				color: white;
+				@include haf($primary-color);
+			}
+		}
+	}
+	&-block {
+		@extend .card-block;
+	}
+	&-showcase {
+		max-height: 40vh;
+		overflow: hidden;
+		position: relative;
+		display: block;
+		> img:first-of-type {
+			//
+		}
+		.blog-block {
+			@include center();
+			position: absolute;
+			width: 100%;
+		}
+		.blog-title, .blog-title a {
+			line-height: $line-height-base;
+		}
+		.blog-title, .blog-author,
+		.blog-title a, .blog-author a {
+			margin-bottom: 0;
+			margin: 0;
+		}
+	}
+	&-item {
+		height: 35vh;
+		overflow: hidden;
+		.blog-title, .blog-author {
+			line-height: $line-height-normal;
+			margin-bottom: 0;
+		}
+		.blog-title {
+			@extend .h4;
+			font-weight: $font-weight-base;
+			@include white();
+		}
+		.blog-author {
+			@include white();
+			letter-spacing: $kerning-narrow;
+			margin-bottom: $margin;
+		}
+		.blog-block {
+			@include align-bottom();
+		}
+	}
+	&-title, &-author,
+	&-title a, &-author a {
+		color: white;
+		&:hover, &:active, &:focus {
+			color: $primary-color;
+			text-decoration: none;
+		}
+	}
+	&-author {
+		font-size: $font-size-base*0.77;
+		font-weight: $font-weight-light;
+		letter-spacing: $kerning-wide;
+	}
+	&-calendar {
+		background-color: $primary-color;
+		color: white;
+		padding: $padding-sm;
+		text-align: center;
+		box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+		font-size: $font-size-base*0.7;
+		letter-spacing: $kerning-wide;
+		[class*="blog-calendar-"] {
+			display: block;
+			padding: $padding-sm 0;
+			color: white;
+		}
+		.separator {
+			border-top: 2px solid white;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.blog-single {
+	border-top: 5px solid $primary-color;
+	border-radius: 3px;
+	&-title {
+		color: $primary-color;
+		font-weight: $font-weight-heading;
+		font-size: $font-size-base*1.2;
+	}
+	&-author, &-author a ,
+	&-date, &-date span {
+		font-size: $font-size-base*0.65;
+		font-weight: $font-weight-base;
+		color: $primary-color;
+		letter-spacing: $kerning-narrow;
+		margin-bottom: 0;
+		@include haf($secondary-color);
+	}
+	&-metadata {
+		margin-bottom: $margin-xl;
+	}
+	&-date, &-date span {
+		letter-spacing: $kerning-narrower;
+	}
+	&-thumbnail {
+		position: relative;
+		margin-bottom: $margin-xl;
+	}
+	.blog-block {
+		h3 {
+			font-size: $font-size-base;
+		}
+		@include heading-weight($font-weight-heading);
+		@include heading-text-transform(uppercase);
+	}
+}

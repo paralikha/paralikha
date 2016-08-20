@@ -1,9 +1,10 @@
 .slides {
-	min-height: 100%;
 	width: auto;
 	overflow-x: hidden;
 	.slide {
 		float: left;
+		display: inline-block;
 		width: 100%;
+		min-height: 300px;
 	}
 }

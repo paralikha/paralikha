@@ -1,13 +1,11 @@
 .modal {
 	padding-left: 0 !important;
-	bottom: initial;
 	&-dialog-fluid {
 		height: auto;
 		margin: 0;
 		max-width: none;
 		padding: 0;
 		width: 100%;
-		margin: $margin;
 		.modal-content {
 			border: none;
 			border-radius: 0 !important;
@@ -15,6 +13,7 @@
 	}
 	&-title {
 		line-height: $line-height-narrow;
+		margin-top: $margin-lg;
 	}
 	&-plain {
 		background-color: #FFF;

@@ -25,25 +25,42 @@ $gray-light-color: 	$gray-light;
 $body-bg: 			$gray;
 
 // Font
-$font-size-base-rem: 1rem;
-$font-size-base-px: 18px;//3.5vh;
-$font-size-base: $font-size-base-rem;
-$line-height-base: 1.8;
-$line-height-narrow: 0.8;
-$line-height-wide: 2.8;
-
 $primary-font-family: "Raleway", "Roboto", "Open Sans", "Helvetica Nueue", sans-serif;
 $secondary-font-family: "Lato", "Lato Thin", "Lato", serif;
 $heading-font-family: $primary-font-family;
 $subheading-font-family: $secondary-font-family;
 
-$font-weight-hairline: 100;
-$font-weight-thin: 200;
-$font-weight-light: 300;
-$font-weight-base: 400;
-$font-weight-bold: 700;
-$font-weight-heavy: 800;
-$font-weight-black: 900;
+$font-size-base-rem: 	1rem;
+$font-size-base-px: 	18px;//3.5vh;
+$font-size-base: 		$font-size-base-rem;
+$font-size: 			$font-size-base-rem;
+$font-size-h1: 			$font-size-base-rem*4;
+$font-size-h2: 			$font-size-base-rem*3;
+$font-size-h3: 			$font-size-base-rem*2;
+$font-size-h4: 			$font-size-base-rem*1;
+$font-size-h5: 			$font-size-base-rem*0.9;
+$font-size-h6: 			$font-size-base-rem*0.8;
+$line-height-base: 		1.8;
+$line-height-narrow: 	0.8;
+$line-height: 			1;
+$line-height-normal: 	$line-height;
+$line-height-heading: 	1.1;
+$line-height-wide: 		2.8;
+
+$kerning-base:		2px;
+$kerning-wide:		4px;
+$kerning-wider:		8px;
+$kerning-narrow: 	2px;
+$kerning-narrower:	1px;
+
+$font-weight-hairline: 	100;
+$font-weight-thin: 		200;
+$font-weight-light: 	300;
+$font-weight-base: 		400;
+$font-weight-heading: 	500;
+$font-weight-bold: 		700;
+$font-weight-heavy: 	800;
+$font-weight-black: 	900;
 
 // Margin
 $margin: 0.833333rem;
@@ -63,7 +80,7 @@ $padding-xl: $padding*4;
 $transition-default: all 0.3s ease-in-out;
 
 // Sidebar
-$sidebar-width-wide: 10vw;//150px;
+$sidebar-width-wide: 12vw;//150px;
 $sidebar-width-narrow: 5vw;//50px;
 
 

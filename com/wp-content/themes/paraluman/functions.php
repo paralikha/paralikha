@@ -48,12 +48,13 @@ function paralikha_enqueue_login_scripts()
 }
 
 function paralikha_enqueue_admin_styles() {
+    wp_enqueue_style('paralikha-admin', get_template_directory_uri() . '/admin-style.css?v=1', false, PARALUMAN_VERSION);
     wp_register_script('paralikha-admin', get_template_directory_uri() . '/js/admin.js', array(), PARALUMAN_VERSION);
     wp_enqueue_script('paralikha-admin');
 }
 
 function paralikha_enqueue_editor_styles() {
-    add_editor_style(get_template_directory_uri() . '/editor-style.css');
+    add_editor_style(get_template_directory_uri() . '/editor-style.css?v='. PARALUMAN_VERSION);
 }
 
 function paralikha_enqueue_styles()
@@ -196,16 +197,16 @@ function pl_social_nav()
         'theme_location'  => 'social-menu',
         'menu'            => '',
         'container'       => 'div',
-        'container_class' => 'menu-container',
+        'container_class' => 'menu-social-menu-container',
         'container_id'    => '',
         'menu_class'      => 'menu',
         'menu_id'         => '',
         'echo'            => true,
-        'fallback_cb'     => 'wp_page_menu',
+        'fallback_cb'     => '',
         'before'          => '',
         'after'           => '',
-        'link_before'     => '',
-        'link_after'      => '',
+        'link_before'     => '<i class="',
+        'link_after'      => '"></i>',
         'items_wrap'      => '<ul class="social-menu">%3$s</ul>',
         'depth'           => 0,
         'walker'          => ''
@@ -247,6 +248,59 @@ function paraluman_print_favicons()
 }
 
 
+function get_the_month()
+{
+    return date("M", strtotime(get_the_date()));
+}
+
+function the_month()
+{
+    echo get_the_month();
+}
+
+function get_the_year()
+{
+    return date("Y", strtotime(get_the_date()));
+}
+
+function the_year()
+{
+    echo get_the_year();
+}
+
+function get_the_pretty_date($format='F d, Y \a\t h:i a')
+{
+    return date($format, strtotime(get_the_date()));
+}
+
+function the_pretty_date($format='F d, Y \a\t h:i a')
+{
+    echo get_the_pretty_date($format);
+}
+
+/**
+ * TinyMCE Extension
+ * enable <span> tag usage
+ *
+ * @param  $init
+ * @return $init
+ */
+function pl_extensionTinyMCE($init) {
+    // Command separated string of extended elements
+    $ext = 'span[id|name|class|style]';
+
+    // Add to extended_valid_elements if it alreay exists
+    if ( isset( $init['extended_valid_elements'] ) ) {
+        $init['extended_valid_elements'] .= ',' . $ext;
+    } else {
+        $init['extended_valid_elements'] = $ext;
+    }
+
+    // Super important: return $init!
+    return $init;
+}
+add_filter('tiny_mce_before_init', 'pl_extensionTinyMCE' );
+
 /**
  * SEO & Analytics
  */
@@ -254,4 +308,9 @@ function paraluman_print_favicons()
 function get_analytics()
 {
 	return; // some analytic scripts here
+}
+
+function get_truncated($string, $count = 25, $ellipsis = '...')
+{
+    return substr($string, 0, $count) . $ellipsis;
 }

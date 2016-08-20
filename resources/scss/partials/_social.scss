@@ -1,0 +1,12 @@
+.social {
+	&-menu {
+		@extend .nav;
+		li {
+		    display: inline-block;
+		    padding: 0 $padding;
+		    a, .nav-link {
+		    	font-size: $font-size-base*0.9;
+		    }
+		}
+	}
+}

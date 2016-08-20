@@ -1,5 +1,6 @@
 // All functions before .ready
 (function ($, document) {
+
 	// Variables
 	var _Scrollify = {
 		create: function ($) {
@@ -10,7 +11,7 @@
 		        easing: "easeOutExpo",
 		        scrollSpeed: 800,
 		        offset : 0,
-		        scrollbars: false,
+		        scrollbars: true,
 		        standardScrollElements: "",
 		        setHeights: true,
 		        overflowScroll: true,
@@ -18,16 +19,6 @@
 		        after:function() {},
 		        afterResize:function() {},
 		        afterRender:function() {
-		        	$('.slides').each(function (e) {
-		        		var $slides = $(this);
-		        		var originalWidth = $slides.parent().outerWidth();
-		        		var $children = $slides.find('.slide');
-		        		$slides.css({width: originalWidth * $children.length});
-		        		$children.each(function (e) {
-		        			$(this).css({width: originalWidth});
-		        		});
-		        		$slides.parent().css({'overflow-x':'hidden'});
-		        	})
 		        	$('[data-bg].section').each(function (e) {
 				        $(this).css({background:$(this).data('bg')});
 				    });
@@ -43,55 +34,6 @@
 		}
 	}
 
-	var _fullpage = {
-		create: function ($) {
-			$ = jQuery;
-			if ($.fn.fullpage) {
-				var f = $(document).find('[data-toggle=fullpage]').fullpage({
-					paddingTop: 		'3.88889rem',
-					paddingBottom: 		'3.88889rem',
-
-					showActiveTooltip: 	false,
-
-					navigation: 		true,
-					navigationPosition: 'right',
-					verticalCentered: 	true,
-
-					slidesNavigation: 	true,
-					loopHorizontal: 	true,
-					slidesNavPosition: 	'bottom',
-
-					controlArrows: 		true,
-
-					scrollOverflow: 	true,
-					scrollingSpeed: 	500,
-					scrollbar: 			false,
-				});
-				console.log('[OK] fullpage created');
-				return f;
-			}
-			console.log('[OK] fullpage is not found');
-			return false;
-		},
-		destroy: function ($) {
-			// console.log($.fn.fullpage);
-			if ($.fn.fullpage) {
-				$.fn.fullpage.destroy('all');
-				console.log('[OK] fullpage destroyed');
-				return true;
-			}
-			return;
-		},
-		reset: function ($) {
-			if ($.fn.fullpage && this.destroy($)) {
-				console.log("[OK] fullpage reset");
-				this.create($);
-				return true;
-			}
-			return;
-		}
-	}
-
 	var _toggles = function ($) {
 		$('[data-toggle=toggleClass]').each(function (e) {
 			var $this   = $(this),
@@ -99,7 +41,6 @@
 				value   = $(this).data('toggle-value'),
 				$target = $($(this).data('target'));
 			$this.on(action, function (e) {
-				console.log('asdasd');
 				$target.toggleClass(value);
 			});
 		});
@@ -135,15 +76,10 @@
 			// body...
 		},
 		onAfter: function ($container, $newContent) {
-			// _fullpage.reset($);
-			// $.fn.fullpage.destroy('all');
-			// _fullpage.create($);
 			_Scrollify.reset($);
 		}
 	}
 
-	// Fullpage init
-	// _fullpage.create($);
 	// Toggles
 	_toggles($);
 	_Scrollify.create($);

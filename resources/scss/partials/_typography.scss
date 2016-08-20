@@ -3,9 +3,16 @@ h1, h2, h3, h4, h5, h6,
 legend, abbr, blockquote {
 	font-family: $primary-font-family;
 	line-height: $line-height-narrow;
+	span {
+		color: $secondary-color;
+	}
+}
+h1, h2, h3, h4, h5, h6 {
+	line-height: $line-height-heading;
 }
 
 h1, .h1 {
+	font-size: $font-size-h1;
 	font-weight: $font-weight-heavy;
 }
 

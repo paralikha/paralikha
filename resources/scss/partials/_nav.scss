@@ -6,12 +6,6 @@
 		text-align: center;
 		width: 100%;
 		@include center;
-		a {
-			text-decoration: none;
-			font-family: $primary-font-family;
-			font-size: $font-size-base*1.111;
-			font-weight: $font-weight-light;
-		}
 		.menu {
 			&-list {
 				display: flex;
@@ -36,6 +30,14 @@
 			text-align: right;
 			margin-top: $margin;
 		}
+	}
+	a, .nav-link {
+		text-decoration: none;
+		font-family: $primary-font-family;
+		font-size: $font-size-base*1.111;
+		font-weight: $font-weight-light;
+		text-transform: uppercase;
+		line-height: $line-height-base*1.2;
 	}
 }
 
@@ -71,6 +73,9 @@
 	}
 	.nav-main {
 		height: 50px;
-		background: $primary-color;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+		.nav-brand {
+			margin-top: 0;
+		}
 	}
 }
